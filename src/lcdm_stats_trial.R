@@ -1,15 +1,25 @@
-
+#LCDM computation of quantile statistics
 #input command line arguments
 args=commandArgs()
-FILENAME="defscz.txt"
+
 #REGION=args[7]
 DATA_DIR="/cis/home/epostell/Projects/def_scz/pt_antsy_082013/restricted_qc/output/"
 SUBJECT_DIR="/cis/home/epostell/Projects/def_scz/pt_antsy_082013/restricted_qc"
 VOXEL_SIZE=0.5 #mm^3
 
 
+sides = c("lh","rh")
+region = "pt"
+tag1 =  "_EP" 
+tag2 = "_restrict"
+
+diag_labels = c("healthy","defscz","nondefscz")
+for (diag in diag_labels) {
+  FILENAME= paste0(diag,".txt")
+
+for (side in sides) {
 #name of output file
-pdf( file = paste(DATA_DIR,"lh_pt_defscz.pdf",sep=""), height = 10, width = 16)
+pdf( file = paste(DATA_DIR,side,"_",region,"_defscz.pdf",sep=""), height = 10, width = 16)
 
 #calculating data number and number of histgrams to make given there are a max of 10 datasets per histogram
 DATANUMB=nrow(read.table(FILENAME))
@@ -26,7 +36,7 @@ for (n in 1:HISTNUMB) {
     vol95<-c()
     vol99<-c()
     for (i in 1:ROWS){
-    	fn1=paste(SUBJECT_DIR,"/",names[[1]][i],"_lh_AntsyGrey_EP_restrict.txt",sep="") 
+    	fn1=paste(SUBJECT_DIR,"/",names[[1]][i],"_",side,"_AntsyGrey",tag1,tag2,".txt",sep="") 
 	#fn2=paste(SUBJECT_DIR,names[[1]][i],"/",REGION,"_1_quartile_pialmsk_AntsyGrey.txt",sep="")
     	#if ( file.exists(fn1) )
 	   xdata=scan(fn1)
@@ -51,6 +61,8 @@ for (n in 1:HISTNUMB) {
     else 
        lcdmstats<-rbind(lcdmstats,stats)
 }
-write.table(lcdmstats, file=paste(DATA_DIR,"lh_pt_defscz_lcdmstats.txt",sep=""), row.names=F)
+write.table(lcdmstats, file=paste(DATA_DIR,side,"_",region,"_defscz_lcdmstats.txt",sep=""), row.names=F)
 
 dev.off()
+}
+}

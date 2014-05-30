@@ -1,4 +1,4 @@
-IDS,Dx,age,sex,IntraCranialVol,Side,95 – Thickness,95 -Volume,Surface Area
+IDS,Dx,age,sex,IntraCranialVol,Side,95_perc Thickness,95_perc Volume,Surface Area
 101,1,26,1,1559796.66,L,3.3686985,2380.625,852.617
 101,1,26,1,1559796.66,R,3.363726,1841.125,781.69
 102,1,54,1,1580777.958,L,,,
