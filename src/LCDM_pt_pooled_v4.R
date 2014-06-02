@@ -1,10 +1,9 @@
-
-
+#pooled LCDM statistics analysis
 LCDM <- function(fileNames,condTests){
   
+
   
-  #fileNames=c("data/s12349_lant_cing_AntsyGrey.txt","data/s12360_lant_cing_AntsyGrey.txt","data/s12497_lant_cing_AntsyGrey.txt")
-  #fileNames=c("lh_defscz.txt","lh_nondefscz.txt")
+
   b1=TRUE; b2=TRUE; b3=TRUE; b4=TRUE; b5=TRUE; b6=TRUE; b7=TRUE;
   condTests<-c(b1,b2,b3,b4,b5,b6,b7)
   
@@ -91,6 +90,7 @@ condTests[5]="Welch's t-test"%in%b
 condTests[6]="Kruskal-Wallis Test"%in%b
 condTests[7]="ANOVA F-test"%in%b
 b<-condTests
+
 
 lh.pooled.LCDM.files <- c("lh_defscz.txt","lh_nondefscz.txt","lh_healthy")
 rh.pooled.LCDM.files <- c("rh_defscz.txt","rh_nondefscz.txt","rh_healthy")

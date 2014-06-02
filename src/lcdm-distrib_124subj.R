@@ -1,7 +1,7 @@
 #modify here
 
 library(ggplot2)
-
+library(gdata)
 
 #QC 10 subjects at a time
 #LENGTH=124
@@ -51,6 +51,9 @@ lcdm.data.merged$patient_id <- as.factor(lcdm.data.merged$patient_id)
 #hist(x1, 100, freq=FALSE, col="white", border="white", xlim=c(-2,8), ylim=c(0.0,0.6),main="PT",xlab="Distance (mm)",ylab="Probability Density")
 par(new=T)
 pdf( file = paste0("./graphs/LCDM_distrib_",REGION,"_","all.pdf"), height = 10, width = 16)
-ggplot(aes(x=measure, colour=patient_id,alpha= 0.5),data=lcdm.data.merged)+geom_density(alpha=0.5,  data=lcdm.data.merged)+facet_grid(patient_status~side)+guides(colour=FALSE)
+ggplot(aes(x=measure, colour=patient_id,alpha= 0.5),data=lcdm.data.merged)+
+  geom_density(alpha=0.5,  data=lcdm.data.merged)+facet_grid(patient_status~side)+
+  guides(colour=FALSE)+scale_x_continuous(limits=c(-2,6))+theme_bw()
+
 
 dev.off()
