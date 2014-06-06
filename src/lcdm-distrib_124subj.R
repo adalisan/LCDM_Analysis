@@ -47,13 +47,16 @@ for (i in 1:(2*LENGTH)){
   )
 }
 
+lcdm.data.merged$patient_status<- ordered (lcdm.data.merged$patient_status,levels= c("healthy","defscz","nondefscz"))
 lcdm.data.merged$patient_id <- as.factor(lcdm.data.merged$patient_id)
+
 #hist(x1, 100, freq=FALSE, col="white", border="white", xlim=c(-2,8), ylim=c(0.0,0.6),main="PT",xlab="Distance (mm)",ylab="Probability Density")
 par(new=T)
 pdf( file = paste0("./graphs/LCDM_distrib_",REGION,"_","all.pdf"), height = 10, width = 16)
-ggplot(aes(x=measure, colour=patient_id,alpha= 0.5),data=lcdm.data.merged)+
-  geom_density(alpha=0.5,  data=lcdm.data.merged)+facet_grid(patient_status~side)+
-  guides(colour=FALSE)+scale_x_continuous(limits=c(-2,6))+theme_bw()
-
+distr_plot<- ggplot(aes(x=measure, colour=patient_id,alpha= 0.5),data=lcdm.data.merged)+
+  geom_density(alpha=0.5,  data=lcdm.data.merged)+facet_grid(patient_status~side, scales="free")+
+  guides(colour=FALSE)+scale_x_continuous(limits=c(-2,5))+theme_bw()+labs(xlab="Distance (mm)",ylab="Probability Density")
+print(distr_plot)
 
 dev.off()
+

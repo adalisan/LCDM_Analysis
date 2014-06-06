@@ -4,7 +4,7 @@
 
 args=commandArgs()
 
-REGION=args[6]
+REGION="pt"
 LCDM <- function(fileNames,condTests,REGION){
 #DATA_NUMB<-c(as.integer(args[7]),as.integer(args[8]))
 
@@ -119,9 +119,9 @@ b[[27]]<-t.test(distsl[[3]],distsl[[2]],alternative = "l",mu = 0, paired = FALSE
 
 return(b)
 }
-file1=paste("pooled_files/",REGION,"_healthy_wave1_pooled_antsy.txt",sep='')
-file2=paste("pooled_files/",REGION,"_nondefscz_wave1_pooled_antsy.txt",sep='')
-file3=paste("pooled_files/",REGION,"_defscz_wave1_pooled_antsy.txt",sep='')
+file1=paste("./data/pooled_files/",REGION,"_healthy_wave1_pooled_antsy.txt",sep='')
+file2=paste("./data/pooled_files/",REGION,"_nondefscz_wave1_pooled_antsy.txt",sep='')
+file3=paste("./data/pooled_files/",REGION,"_defscz_wave1_pooled_antsy.txt",sep='')
 
 fileNames=c(file1,file2,file3)
 
@@ -138,7 +138,7 @@ out<-LCDM(fileNames,condTests,REGION)
 
 ### write results into file ###
 
-OUTFILE=paste("/cis/project/def_scz/work/pooled_analysis/output/result_",REGION,".txt",sep='')
+OUTFILE=paste("./results/LCDM_pooled_test_results_",REGION,".txt",sep='')
 
 cat("Statistical Summary for ",REGION,"\n",file=OUTFILE)
 
