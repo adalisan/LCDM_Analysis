@@ -15,27 +15,27 @@ print(summary(X95_perc.Volume[Side=="R"]))
 
 
 
-lm.fit.t<-lm(Dx~X95_perc.Thickness+Side+age+sex,data = pt_lcdm_stats)
+lm.fit.t<-lm(Dx~X95_perc.Thickness+Side+age+sex+ICV,data = pt_lcdm_stats)
 ancova.res <- anova(lm.fit.t)
 p.val.thk.ancova <- ancova.res$`Pr(>F)`[1]
 print(paste0("Null: Diagnosis is not associated with %95 Thickness controlled for side, age and sex  (p-value = ",p.val.thk.ancova,")") )
 if (p.val.thk.ancova <p.cutoff) print("**Significant**")
 
-lm.fit.a<-lm(Dx~Surface.Area+Side+age+sex,data = pt_lcdm_stats)
+lm.fit.a<-lm(Dx~Surface.Area+Side+age+sex+ICV,data = pt_lcdm_stats)
 ancova.res <- anova(lm.fit.a)
 p.val.area.ancova <- ancova.res$`Pr(>F)`[1]
 
 print(paste0("Null: Diagnosis is not associated with Surface.Area  controlled for side, age and sex (p-value = ",p.val.area.ancova,")") )
 if (p.val.area.ancova <p.cutoff) print("**Significant**")
 
-lm.fit.v<-lm(Dx~X95_perc.Volume+Side+age+sex,data = pt_lcdm_stats)
+lm.fit.v<-lm(Dx~X95_perc.Volume+Side+age+sex+ICV,data = pt_lcdm_stats)
 ancova.res <- anova(lm.fit.v)
 p.val.vol.ancova <- ancova.res$`Pr(>F)`[1]
 print(paste0("Null: Diagnosis is not associated with 95% Volume  controlled for side, age and sex (p-value = ",p.val.vol.ancova,")") )
 if (p.val.vol.ancova <p.cutoff) print("**Significant**")
 
 for (pt_measure in c("X95_perc.Thickness", "Surface.Area","X95_perc.Volume")){
-  lm.form <- as.formula(paste0(pt_measure,'~Side'))
+  lm.form <- as.formula(paste0(pt_measure,'~Side+cAge+sex+cICV'))
 lm.fit<-lm (lm.form,na.action= na.omit)
 
 print("")
@@ -47,7 +47,7 @@ print(paste0("Null: PT measure ",pt_measure ,
 if (p.val <p.cutoff) print("**Significant**")
 
 
-lm.form <- as.formula(paste0(pt_measure,'~Side*Dx'))
+lm.form <- as.formula(paste0(pt_measure,'~Side*Dx+cAge+sex+cICV'))
 lm.fit<-lm (lm.form,na.action= na.omit)
 
 print("")
