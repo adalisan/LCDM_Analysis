@@ -1,15 +1,17 @@
-#modify here
+
 
 library(ggplot2)
 library(gdata)
 
 #QC 10 subjects at a time
-#LENGTH=124
+#LENGTH=122 (Fixed, was 124)
 
 READPATH<-c()
 patient_id.defscz<-read.table("./data/defscz.txt") #file that contains file names or path names of the subjects
 patient_id.healthy<-read.table("./data/healthy.txt")
 patient_id.nondefscz<-read.table("./data/nondefscz.txt")
+patients.pass.qc<- unlist(c(patient_id.defscz,patient_id.healthy,patient_id.nondefscz))
+
 
 patient_id_status_lookup<-combine(patient_id.defscz,patient_id.healthy,patient_id.nondefscz,names=c("defscz","healthy","nondefscz"))
 LENGTH <- nrow(patient_id_status_lookup)

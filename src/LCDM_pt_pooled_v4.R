@@ -1,16 +1,10 @@
 #pooled LCDM statistics analysis
-LCDM <- function(fileNames,condTests){
+LCDM <- function(distsl,condTests){
   
-  b1=TRUE; b2=TRUE; b3=TRUE; b4=TRUE; b5=TRUE; b6=TRUE; b7=TRUE;
-  condTests<-c(b1,b2,b3,b4,b5,b6,b7)
   
   ### Pre-Processing ###
   library(MASS)
-  b<-list(); dists<-c(); distsl<-c();
-  
-  for (i in 1:length(fileNames)){ 
-    distsl[i]<-read.table(fileNames[i]) 
-  }
+  b<-list(); dists<-c(); 
   minlength=min(as.numeric(lapply(distsl,length)))
   dists=sapply(distsl,sample,minlength) #for tests requiring same number in group
   
@@ -24,7 +18,7 @@ LCDM <- function(fileNames,condTests){
   # dev.off()
   
   ########## 2-group tests ###########
-  if(ncol(dists)==2){
+  {
     
     ## Mann-Whitney Test (Wilcoxon Rank Sum) ##
     if(condTests[1]==TRUE){
@@ -92,15 +86,17 @@ condTests[7]="ANOVA F-test"%in%b
 b<-condTests
 
 
-lh.pooled.LCDM.files <- c("lh_defscz.txt","lh_nondefscz.txt","lh_healthy.txt")
-rh.pooled.LCDM.files <- c("rh_defscz.txt","rh_nondefscz.txt","rh_healthy.txt")
+lh.pooled.LCDM.files <- c("lh_healthy.txt","lh_nondefscz.txt","lh_defscz.txt")
+rh.pooled.LCDM.files <- c("rh_healthy.txt","rh_nondefscz.txt","rh_defscz.txt")
+
 
 
 lh.pooled.LCDM.files <- paste("./data/",lh.pooled.LCDM.files,sep="")
 rh.pooled.LCDM.files <- paste("./data/",rh.pooled.LCDM.files,sep="")
 
 
-contrast.groups<-array(c(1,2,3,2,3,1,3,1,2),dim=c(3,3))
+contrast.groups<-array(c(1,2,3,2,3,1,1,3,2),dim=c(3,3))
+contrast.groups<- t(contrast.groups)
 sides<- c('lh','rh')
 test.names <- c("MWU Test" ,  "KS Test Two-sided",  "KS Test Greater" ,
                 "KS Test Less", "Welch's t-test", "KW Test", "ANOVA F Test")
@@ -108,13 +104,17 @@ test.names <- c("MWU Test" ,  "KS Test Two-sided",  "KS Test Greater" ,
 out <- list()
 for (it in 1:3) {
   for (side in sides){
-    
+    distsl<-list();
+    fileNames<- rh.pooled.LCDM.files[contrast.groups[it,]]
+    for (i in 1:length(fileNames)){ 
+      distsl[[i]]<-scan(fileNames[i]) 
+    }
     if (side=='lh'){
-      out<-LCDM(lh.pooled.LCDM.files[contrast.groups[it,]],condTests)
+      out<-LCDM(distsl,condTests)
       
     }
     else{
-      out<-LCDM(rh.pooled.LCDM.files[contrast.groups[it,]],condTests)
+      out<-LCDM(distsr,condTests)
       
     }    
         
@@ -123,7 +123,7 @@ for (it in 1:3) {
     #  if (test.res$p.value<1E-5)
     #}
     
-    fname<- paste0("./results/pt_pooled/",side,"_deno.txt")
+    fname<- paste0("./results/pt_pooled/",side,"_",it,".txt")
     
     if(length(out)!=0){      
       for (i in 1:length(test.names)){
