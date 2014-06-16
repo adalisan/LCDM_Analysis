@@ -1,0 +1,8 @@
+,Side,,Diagnosis,,Diagnosis x Side,
+,F statistic,p-value, F statistic,p-value, F statistic,p-value
+Left volume (mm^3),0.192249929,0.825230264,25.30746647,9.71E-07,1.279930919,0.279987598
+Right volume (mm^3),,,,,,
+Left thickness (mm),2.002818711,0.137251408,25.87959292,7.43E-07,0.165958518,0.847180563
+Right thickness (mm),,,,,,
+Left surface area (mm^2),0.588984311,0.55571107,8.326810365,0.004271431,1.587120496,0.206707172
+Right surface area (mm^2),,,,,,

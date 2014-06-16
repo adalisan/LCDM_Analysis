@@ -1,0 +1,421 @@
+The following objects are masked from pt_lcdm_stats (position 6):
+
+    age, Dx, ICV, IDS, IntraCranialVol, sex, Side, Surface.Area, X95_perc.Thickness, X95_perc.Volume
+The following objects are masked from pt_lcdm_stats (position 7):
+
+    age, Dx, IDS, IntraCranialVol, sex, Side, Surface.Area, X95_perc.Thickness, X95_perc.Volume
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.397   2.884   3.068   3.056   3.259   3.621 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.189   3.076   3.284   3.222   3.434   3.651 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  541.8   822.7   952.5   961.7  1067.0  1725.0 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  412.4   731.2   872.5   887.0  1022.0  1558.0       1 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1325    2156    2556    2684    3170    4970 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1019    1858    2199    2261    2579    4787 
+[1] "Null: Diagnosis is not associated with %95 Thickness controlled for side, age and sex  (p-value = 0.0639916068794697)"
+[1] "Null: Diagnosis is not associated with Surface.Area  controlled for side, age and sex (p-value = 0.412073377275376)"
+[1] "Null: Diagnosis is not associated with 95% Volume  controlled for side, age and sex (p-value = 0.813638455937763)"
+lh.thk95.mm. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  race controlled for age, sex and ICV (p-value = 0.866823412703692 )"
+lh.thk95.mm. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.563437113825736 )"
+lh.thk95.mm. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.466078233302257 )"
+lh.thk95.mm. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.628508281202827 )"
+lh.thk95.mm. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  educ controlled for age, sex and ICV (p-value = 0.523904287635683 )"
+lh.thk95.mm. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  hand controlled for age, sex and ICV (p-value = 0.817111989430359 )"
+lh.thk95.mm. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  typical controlled for age, sex and ICV (p-value = 0.128478233511814 )"
+lh.thk95.mm. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.764221756502863 )"
+lh.thk95.mm. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.174020190113855 )"
+lh.thk95.mm. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.387907303844212 )"
+lh.thk95.mm. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.371486402280039 )"
+lh.thk95.mm. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.860527665086943 )"
+lh.thk95.mm. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.899154142336222 )"
+lh.thk95.mm. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.518493424781926 )"
+lh.thk95.mm. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.544164591506393 )"
+lh.thk95.mm. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.743977991657483 )"
+lh.thk95.mm. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.628508281202827 )"
+lh.thk95.mm. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  duration controlled for age, sex and ICV (p-value = 0.0958158486413903 )"
+lh.thk95.mm. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  saps controlled for age, sex and ICV (p-value = 0.5897391733503 )"
+lh.thk95.mm. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk95.mm. is not associated with  sans controlled for age, sex and ICV (p-value = 0.999802643643314 )"
+lh.thk99.mm. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  race controlled for age, sex and ICV (p-value = 0.920696807708858 )"
+lh.thk99.mm. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.737903361871954 )"
+lh.thk99.mm. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.647898790329094 )"
+lh.thk99.mm. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.86030931615397 )"
+lh.thk99.mm. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  educ controlled for age, sex and ICV (p-value = 0.566344650911669 )"
+lh.thk99.mm. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  hand controlled for age, sex and ICV (p-value = 0.565599552547131 )"
+lh.thk99.mm. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  typical controlled for age, sex and ICV (p-value = 0.0987170800788342 )"
+lh.thk99.mm. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.738432412370183 )"
+lh.thk99.mm. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.150195162033656 )"
+lh.thk99.mm. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.23084812826244 )"
+lh.thk99.mm. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.321087154873655 )"
+lh.thk99.mm. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.663086570741116 )"
+lh.thk99.mm. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.857988722963721 )"
+lh.thk99.mm. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.442823927619144 )"
+lh.thk99.mm. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.874846817458047 )"
+lh.thk99.mm. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.760861704105795 )"
+lh.thk99.mm. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.86030931615397 )"
+lh.thk99.mm. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  duration controlled for age, sex and ICV (p-value = 0.285746658267438 )"
+lh.thk99.mm. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  saps controlled for age, sex and ICV (p-value = 0.580581605561287 )"
+lh.thk99.mm. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.thk99.mm. is not associated with  sans controlled for age, sex and ICV (p-value = 0.894180752841288 )"
+lh.vol95.mm3. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  race controlled for age, sex and ICV (p-value = 0.398160481451531 )"
+lh.vol95.mm3. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.109252430576825 )"
+lh.vol95.mm3. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.637760899762989 )"
+lh.vol95.mm3. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.932621188124846 )"
+lh.vol95.mm3. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  educ controlled for age, sex and ICV (p-value = 0.475496740229165 )"
+lh.vol95.mm3. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  hand controlled for age, sex and ICV (p-value = 0.517308955412118 )"
+lh.vol95.mm3. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  typical controlled for age, sex and ICV (p-value = 0.19184529501399 )"
+lh.vol95.mm3. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.685986720978596 )"
+lh.vol95.mm3. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.273905415381257 )"
+lh.vol95.mm3. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.395453762114307 )"
+lh.vol95.mm3. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.639851081707169 )"
+lh.vol95.mm3. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.353669362100958 )"
+lh.vol95.mm3. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.965118018622705 )"
+lh.vol95.mm3. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.861993437574228 )"
+lh.vol95.mm3. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.639800854075921 )"
+lh.vol95.mm3. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.415393217885883 )"
+lh.vol95.mm3. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.932621188124846 )"
+lh.vol95.mm3. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  duration controlled for age, sex and ICV (p-value = 0.573384564472011 )"
+lh.vol95.mm3. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  saps controlled for age, sex and ICV (p-value = 0.15657879409554 )"
+lh.vol95.mm3. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol95.mm3. is not associated with  sans controlled for age, sex and ICV (p-value = 0.424073808184823 )"
+lh.vol99.mm3. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  race controlled for age, sex and ICV (p-value = 0.39802351711702 )"
+lh.vol99.mm3. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.109177632903725 )"
+lh.vol99.mm3. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.637456058417227 )"
+lh.vol99.mm3. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.933075769821672 )"
+lh.vol99.mm3. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  educ controlled for age, sex and ICV (p-value = 0.475037610513593 )"
+lh.vol99.mm3. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  hand controlled for age, sex and ICV (p-value = 0.51762116668614 )"
+lh.vol99.mm3. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  typical controlled for age, sex and ICV (p-value = 0.191703249402405 )"
+lh.vol99.mm3. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.686192431356229 )"
+lh.vol99.mm3. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.273687500924079 )"
+lh.vol99.mm3. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.395568971006609 )"
+lh.vol99.mm3. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.640092246387356 )"
+lh.vol99.mm3. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.353638597759301 )"
+lh.vol99.mm3. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.964526054580226 )"
+lh.vol99.mm3. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.861891604747505 )"
+lh.vol99.mm3. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.639772895830656 )"
+lh.vol99.mm3. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.415491406819257 )"
+lh.vol99.mm3. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.933075769821672 )"
+lh.vol99.mm3. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  duration controlled for age, sex and ICV (p-value = 0.572781153850196 )"
+lh.vol99.mm3. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  saps controlled for age, sex and ICV (p-value = 0.156841703138796 )"
+lh.vol99.mm3. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.vol99.mm3. is not associated with  sans controlled for age, sex and ICV (p-value = 0.423718553567232 )"
+lh.surfArea.mm2. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  race controlled for age, sex and ICV (p-value = 0.277494345365793 )"
+lh.surfArea.mm2. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.104838501905172 )"
+lh.surfArea.mm2. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.632708501912312 )"
+lh.surfArea.mm2. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.892378373353636 )"
+lh.surfArea.mm2. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  educ controlled for age, sex and ICV (p-value = 0.6815468705461 )"
+lh.surfArea.mm2. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  hand controlled for age, sex and ICV (p-value = 0.804581277430113 )"
+lh.surfArea.mm2. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  typical controlled for age, sex and ICV (p-value = 0.605774529195721 )"
+lh.surfArea.mm2. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.921791714854695 )"
+lh.surfArea.mm2. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.768673975616881 )"
+lh.surfArea.mm2. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.8064629922743 )"
+lh.surfArea.mm2. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.245388360966893 )"
+lh.surfArea.mm2. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.914233430033179 )"
+lh.surfArea.mm2. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.66030621011861 )"
+lh.surfArea.mm2. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.984785721799019 )"
+lh.surfArea.mm2. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.650707719231647 )"
+lh.surfArea.mm2. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.515277081682638 )"
+lh.surfArea.mm2. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.892378373353636 )"
+lh.surfArea.mm2. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  duration controlled for age, sex and ICV (p-value = 0.57861526053765 )"
+lh.surfArea.mm2. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  saps controlled for age, sex and ICV (p-value = 0.117866115397213 )"
+lh.surfArea.mm2. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure lh.surfArea.mm2. is not associated with  sans controlled for age, sex and ICV (p-value = 0.185729900720906 )"
+thk95.mm. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  race controlled for age, sex and ICV (p-value = 0.886061164766211 )"
+thk95.mm. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.66661299262498 )"
+thk95.mm. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.201638419223019 )"
+thk95.mm. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.63644473557582 )"
+thk95.mm. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  educ controlled for age, sex and ICV (p-value = 0.230258347761667 )"
+thk95.mm. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  hand controlled for age, sex and ICV (p-value = 0.911708275972804 )"
+thk95.mm. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  typical controlled for age, sex and ICV (p-value = 0.808096528238603 )"
+thk95.mm. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.740947753029715 )"
+thk95.mm. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.648742569321816 )"
+thk95.mm. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.699873523218961 )"
+thk95.mm. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.343636401395496 )"
+thk95.mm. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.506878824536005 )"
+thk95.mm. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.464311193701485 )"
+thk95.mm. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.467461183678382 )"
+thk95.mm. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.283725287352342 )"
+thk95.mm. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.824629945967443 )"
+thk95.mm. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.63644473557582 )"
+thk95.mm. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  duration controlled for age, sex and ICV (p-value = 0.316498051501764 )"
+thk95.mm. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  saps controlled for age, sex and ICV (p-value = 0.489230249033858 )"
+thk95.mm. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure thk95.mm. is not associated with  sans controlled for age, sex and ICV (p-value = 0.83419618057175 )"
+thk99.mm. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  race controlled for age, sex and ICV (p-value = 0.82174856149612 )"
+thk99.mm. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.890730292480446 )"
+thk99.mm. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.273970644221675 )"
+thk99.mm. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.635136698680804 )"
+thk99.mm. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  educ controlled for age, sex and ICV (p-value = 0.134988659049359 )"
+thk99.mm. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  hand controlled for age, sex and ICV (p-value = 0.904682485351453 )"
+thk99.mm. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  typical controlled for age, sex and ICV (p-value = 0.300549695006838 )"
+thk99.mm. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.398188401601444 )"
+thk99.mm. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.324471047368375 )"
+thk99.mm. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.362851769853714 )"
+thk99.mm. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.262889894966548 )"
+thk99.mm. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.358263401102513 )"
+thk99.mm. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.703334405960075 )"
+thk99.mm. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.998997232843747 )"
+thk99.mm. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.395835081827993 )"
+thk99.mm. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.877539696202184 )"
+thk99.mm. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.635136698680804 )"
+thk99.mm. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  duration controlled for age, sex and ICV (p-value = 0.818990075666128 )"
+thk99.mm. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  saps controlled for age, sex and ICV (p-value = 0.556105942909943 )"
+thk99.mm. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure thk99.mm. is not associated with  sans controlled for age, sex and ICV (p-value = 0.69001940216343 )"
+vol95.mm3. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  race controlled for age, sex and ICV (p-value = 0.0184557202056143 )"
+vol95.mm3. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.0553243081641877 )"
+vol95.mm3. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.844103832662029 )"
+vol95.mm3. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.788449687783712 )"
+vol95.mm3. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  educ controlled for age, sex and ICV (p-value = 0.139396624660857 )"
+vol95.mm3. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  hand controlled for age, sex and ICV (p-value = 0.531988832917342 )"
+vol95.mm3. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  typical controlled for age, sex and ICV (p-value = 0.0973389716658916 )"
+vol95.mm3. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.466963909232355 )"
+vol95.mm3. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.426011931850522 )"
+vol95.mm3. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.600115087179879 )"
+vol95.mm3. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.361329407375833 )"
+vol95.mm3. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.943067778154332 )"
+vol95.mm3. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.370828905861071 )"
+vol95.mm3. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.693091547865839 )"
+vol95.mm3. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.571256779067199 )"
+vol95.mm3. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.641608998631439 )"
+vol95.mm3. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.788449687783712 )"
+vol95.mm3. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  duration controlled for age, sex and ICV (p-value = 0.150465043356494 )"
+vol95.mm3. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  saps controlled for age, sex and ICV (p-value = 0.920844833601215 )"
+vol95.mm3. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure vol95.mm3. is not associated with  sans controlled for age, sex and ICV (p-value = 0.909879129568329 )"
+vol99.mm3. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  race controlled for age, sex and ICV (p-value = 0.0184659763497904 )"
+vol99.mm3. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.0552581033029799 )"
+vol99.mm3. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.843469994391808 )"
+vol99.mm3. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.788026416410693 )"
+vol99.mm3. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  educ controlled for age, sex and ICV (p-value = 0.139435596502207 )"
+vol99.mm3. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  hand controlled for age, sex and ICV (p-value = 0.532116567643995 )"
+vol99.mm3. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  typical controlled for age, sex and ICV (p-value = 0.0974297258597708 )"
+vol99.mm3. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.466897560544091 )"
+vol99.mm3. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.426201054519149 )"
+vol99.mm3. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.60013254504594 )"
+vol99.mm3. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.361014491216579 )"
+vol99.mm3. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.94290827877395 )"
+vol99.mm3. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.370686936915877 )"
+vol99.mm3. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.693449744282489 )"
+vol99.mm3. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.571245805002403 )"
+vol99.mm3. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.641970944368001 )"
+vol99.mm3. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.788026416410693 )"
+vol99.mm3. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  duration controlled for age, sex and ICV (p-value = 0.150652625276719 )"
+vol99.mm3. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  saps controlled for age, sex and ICV (p-value = 0.92057167577423 )"
+vol99.mm3. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure vol99.mm3. is not associated with  sans controlled for age, sex and ICV (p-value = 0.909960452074325 )"
+surfArea.mm2. ~ race + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  race controlled for age, sex and ICV (p-value = 0.130680980184505 )"
+surfArea.mm2. ~ estimated.IQ + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  estimated.IQ controlled for age, sex and ICV (p-value = 0.0815254065338219 )"
+surfArea.mm2. ~ times.hospitalized + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  times.hospitalized controlled for age, sex and ICV (p-value = 0.667811256201888 )"
+surfArea.mm2. ~ age.at.onset + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  age.at.onset controlled for age, sex and ICV (p-value = 0.922276085362581 )"
+surfArea.mm2. ~ educ + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  educ controlled for age, sex and ICV (p-value = 0.222160490519376 )"
+surfArea.mm2. ~ hand + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  hand controlled for age, sex and ICV (p-value = 0.904364174861276 )"
+surfArea.mm2. ~ typical + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  typical controlled for age, sex and ICV (p-value = 0.105025982402172 )"
+surfArea.mm2. ~ atypical + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  atypical controlled for age, sex and ICV (p-value = 0.969429748625999 )"
+surfArea.mm2. ~ totapm + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  totapm controlled for age, sex and ICV (p-value = 0.177996292712871 )"
+surfArea.mm2. ~ deprx + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  deprx controlled for age, sex and ICV (p-value = 0.813682510715904 )"
+surfArea.mm2. ~ tricyc + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  tricyc controlled for age, sex and ICV (p-value = 0.195329458150643 )"
+surfArea.mm2. ~ ssri + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  ssri controlled for age, sex and ICV (p-value = 0.607730642838478 )"
+surfArea.mm2. ~ lithium + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  lithium controlled for age, sex and ICV (p-value = 0.234808217860364 )"
+surfArea.mm2. ~ anticon + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  anticon controlled for age, sex and ICV (p-value = 0.412387872355981 )"
+surfArea.mm2. ~ benzo + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  benzo controlled for age, sex and ICV (p-value = 0.813417268699958 )"
+surfArea.mm2. ~ antipark + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  antipark controlled for age, sex and ICV (p-value = 0.56115797175684 )"
+surfArea.mm2. ~ ageonset + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  ageonset controlled for age, sex and ICV (p-value = 0.922276085362581 )"
+surfArea.mm2. ~ duration + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  duration controlled for age, sex and ICV (p-value = 0.690148731047124 )"
+surfArea.mm2. ~ saps + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  saps controlled for age, sex and ICV (p-value = 0.618158997420349 )"
+surfArea.mm2. ~ sans + age + sex + IntraCranialVol
+[1] "Null: PT measure surfArea.mm2. is not associated with  sans controlled for age, sex and ICV (p-value = 0.705682209392053 )"
