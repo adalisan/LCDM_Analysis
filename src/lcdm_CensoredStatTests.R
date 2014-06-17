@@ -10,7 +10,8 @@ library(MASS)
 library(stats)
 library(nortest) # package for tests of normality
 library(car)
-
+library(ggplot2)
+library(dplyr)
 
 
 set.seed(1)
@@ -29,7 +30,9 @@ CtrlL <- scan("./data/pt_censor/lh_nondefscz.txt")
 CtrlR <- scan("./data/pt_censor/rh_nondefscz.txt")
 
 
-
+#Only include patients whose data have passed quality control (8 subjects are removed)
+#patients.pass.qc<- unlist(c(patient_id.defscz,patient_id.healthy,patient_id.nondefscz))
+#pt_lcdm_stats <- pt_lcdm_stats[ pt_lcdm_stats$IDS%in%patients.pass.qc,]
 
 LDv<-c(MDDL,HRL,CtrlL)
 Lcl<-c(rep(1,length(MDDL)),rep(2,length(HRL)),rep(3,length(CtrlL)))
@@ -52,6 +55,9 @@ max.dis <- min(max.dis,4.0)
 merged.LCDM <- subset(merged.LCDM,subset=merged.LCDM$measure<max.dis & merged.LCDM$measure>min.dis)
 
 
+
+
+#pt_lcdm_stats$ICV<- pt_lcdm_stats$IntraCranialVol
 
 lcdm.breaks<-seq(min.dis+.05,max.dis,by=.01)
 num.breaks<-length(lcdm.breaks)
@@ -89,7 +95,7 @@ for (i in 1:num.breaks)
   stats.df<- rbind(stats.df,data.frame(value= PmgKWR ,test.type="kruskal",side="right",censoring_idx=i,
                                        diag_groups= "all"))
   
-  formula.for.assoc <- measure~diag
+  
   mod1<-lm(measure~diag, data=ldv)
   anova.mod1<-anova(mod1)
   PmgAOV1L <-anova.mod1[1,5] #ANOVA with HOV (homegeneity of variances)
