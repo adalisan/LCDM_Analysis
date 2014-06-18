@@ -16,33 +16,33 @@ library(dplyr)
 
 set.seed(1)
 
-# 1 == "MDD"
-# 2 == "HR"
-# 3 == "Ctrl"
+# 1 == "Healthy"
+# 2 == "DefScz"
+# 3 == "NondefScz"
 
 ptm<-proc.time()[1]
 
 MDDL <- scan("./data/pt_censor/lh_healthy.txt") #pooled MDD distances
 MDDR <- scan("./data/pt_censor/rh_healthy.txt")
-HRL <- scan("./data/pt_censor/lh_defscz.txt")
-HRR <- scan("./data/pt_censor/rh_defscz.txt")
-CtrlL <- scan("./data/pt_censor/lh_nondefscz.txt")
-CtrlR <- scan("./data/pt_censor/rh_nondefscz.txt")
+DSCZL <- scan("./data/pt_censor/lh_defscz.txt")
+DSCZR <- scan("./data/pt_censor/rh_defscz.txt")
+NDSCZL <- scan("./data/pt_censor/lh_nondefscz.txt")
+NDSCZR <- scan("./data/pt_censor/rh_nondefscz.txt")
 
 
 #Only include patients whose data have passed quality control (8 subjects are removed)
-#patients.pass.qc<- unlist(c(patient_id.defscz,patient_id.healthy,patient_id.nondefscz))
+#patients.pass.qc<- unlist(c(patient_id.defscz,patient_id.NondefScz,patient_id.nondefscz))
 #pt_lcdm_stats <- pt_lcdm_stats[ pt_lcdm_stats$IDS%in%patients.pass.qc,]
 
-LDv<-c(MDDL,HRL,CtrlL)
-Lcl<-c(rep(1,length(MDDL)),rep(2,length(HRL)),rep(3,length(CtrlL)))
-Lcl<-factor(Lcl,labels=c("MDD","HR","Ctrl"))
+LDv<-c(MDDL,DSCZL,NDSCZL)
+Lcl<-c(rep(1,length(MDDL)),rep(2,length(DSCZL)),rep(3,length(NDSCZL)))
+Lcl<-factor(Lcl,labels=c("Healthy","DefScz","NondefScz"))
 
 
 
-RDv<-c(MDDR,HRR,CtrlR)
-Rcl<-c(rep(1,length(MDDR)),rep(2,length(HRR)),rep(3,length(CtrlR)))
-Rcl<-factor(Rcl,labels=c("MDD","HR","Ctrl"))
+RDv<-c(MDDR,DSCZR,NDSCZR)
+Rcl<-c(rep(1,length(MDDR)),rep(2,length(DSCZR)),rep(3,length(NDSCZR)))
+Rcl<-factor(Rcl,labels=c("Healthy","DefScz","NondefScz"))
 
 merged.LCDM<- data.frame(measure = LDv, diag=Lcl ,side = "left")
 merged.LCDM<- rbind(merged.LCDM,data.frame(measure = RDv, diag=Rcl ,side = "right"))
@@ -68,13 +68,13 @@ for (i in 1:num.breaks)
   ldv<-filter(merged.LCDM,side=="left", measure  < lcdm.breaks[i] )
   rdv<-filter(merged.LCDM,side=="right", measure  < lcdm.breaks[i])
   
-  mddL <- filter(ldv,diag=="MDD")$measure
-  hrL  <- filter(ldv,diag=="HR") $measure
-  ctrlL<- filter(ldv,diag=="Ctrl")$measure
+  mddL <- filter(ldv,diag=="Healthy")$measure
+  DSCZL  <- filter(ldv,diag=="DefScz") $measure
+  NDSCZL<- filter(ldv,diag=="NondefScz")$measure
   
-  mddR <-filter(ldv,diag=="MDD")$measure
-  hrR  <-filter(ldv,diag=="HR")$measure
-  ctrlR<-filter(ldv,diag=="Ctrl")$measure
+  mddR <-filter(ldv,diag=="Healthy")$measure
+  DSCZR  <-filter(ldv,diag=="DefScz")$measure
+  NDSCZR<-filter(ldv,diag=="NondefScz")$measure
   
   
   ldv_grouped <- group_by(ldv, diag)
@@ -127,9 +127,9 @@ for (i in 1:num.breaks)
   
   #pairwise left comparisons
   #wilcoxon tests
-  plt1<-wilcox.test(mddL,hrL,alternative="l",paired=F)$p.value
-  plt2<-wilcox.test(mddL,ctrlL,alternative="l",paired=F)$p.value
-  plt3<-wilcox.test(hrL,ctrlL,alternative="l",paired=F)$p.value
+  plt1<-wilcox.test(mddL,DSCZL,alternative="l",paired=F)$p.value
+  plt2<-wilcox.test(mddL,NDSCZL,alternative="l",paired=F)$p.value
+  plt3<-wilcox.test(DSCZL,NDSCZL,alternative="l",paired=F)$p.value
   
 
   
@@ -150,30 +150,30 @@ for (i in 1:num.breaks)
   PpwWL23gtHC  <- Pgtadj[3]
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWL12lt ,test.type="wilcox.less",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL13lt ,test.type="wilcox.less",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL23lt ,test.type="wilcox.less",side="left",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWL12ltHC ,test.type="wilcox.less.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL13ltHC ,test.type="wilcox.less.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL23ltHC ,test.type="wilcox.less.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWL12gtHC ,test.type="wilcox.greater.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL13gtHC ,test.type="wilcox.greater.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL13gtHC ,test.type="wilcox.greater.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   #t-tests
-  plt1<-t.test(mddL,hrL,alternative="l",paired=F)$p.value
-  plt2<-t.test(mddL,ctrlL,alternative="l",paired=F)$p.value
-  plt3<-t.test(hrL,ctrlL,alternative="l",paired=F)$p.value
+  plt1<-t.test(mddL,DSCZL,alternative="l",paired=F)$p.value
+  plt2<-t.test(mddL,NDSCZL,alternative="l",paired=F)$p.value
+  plt3<-t.test(DSCZL,NDSCZL,alternative="l",paired=F)$p.value
   
   #without Holm's correction
   PpwtL12lt  <- plt1
@@ -193,32 +193,32 @@ for (i in 1:num.breaks)
   
   
   stats.df<- rbind(stats.df,data.frame(value= PpwtL12lt ,test.type="t.less",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL13lt ,test.type="t.less",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL23lt ,test.type="t.less",side="left",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwtL12ltHC ,test.type="t.less.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL13ltHC ,test.type="t.less.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL23ltHC ,test.type="t.less.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwtL12gtHC ,test.type="t.greater.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL13gtHC ,test.type="t.greater.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL13gtHC ,test.type="t.greater.holm.corr",side="left",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   
   #pairwise right comparisons
   #wilcoxon tests
-  plt1<-wilcox.test(mddR,hrR,alternative="l",paired=F)$p.value
-  plt2<-wilcox.test(mddR,ctrlR,alternative="l",paired=F)$p.value
-  plt3<-wilcox.test(hrR,ctrlR,alternative="l",paired=F)$p.value
+  plt1<-wilcox.test(mddR,DSCZR,alternative="l",paired=F)$p.value
+  plt2<-wilcox.test(mddR,NDSCZR,alternative="l",paired=F)$p.value
+  plt3<-wilcox.test(NDSCZR,DSCZR,alternative="l",paired=F)$p.value
   
   #without Holm's correction
   PpwWR12lt  <- plt1
@@ -237,31 +237,31 @@ for (i in 1:num.breaks)
   PpwWR23gtHC  <- Pgtadj[3]
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWR12lt ,test.type="wilcox.less",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR13lt ,test.type="wilcox.less",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR23lt ,test.type="wilcox.less",side="right",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "NondefScz,DefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWR12ltHC ,test.type="wilcox.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR13ltHC ,test.type="wilcox.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "NondefScz,Healthy"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR23ltHC ,test.type="wilcox.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "NondefScz,DefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWR12gtHC ,test.type="wilcox.greater.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR13gtHC ,test.type="wilcox.greater.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
-  stats.df<- rbind(stats.df,data.frame(value= PpwWR13gtHC ,test.type="wilcox.greater.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
+  stats.df<- rbind(stats.df,data.frame(value= PpwWR23gtHC ,test.type="wilcox.greater.holm.corr",side="right",censoring_idx=i,
+                                       diag_groups= "DefScz,NondefScz"))
   
   
   #t-tests
-  plt1<-t.test(mddR,hrR,alternative="l",paired=F)$p.value
-  plt2<-t.test(mddR,ctrlR,alternative="l",paired=F)$p.value
-  plt3<-t.test(hrR,ctrlR,alternative="l",paired=F)$p.value
+  plt1<-t.test(mddR,DSCZR,alternative="l",paired=F)$p.value
+  plt2<-t.test(mddR,NDSCZR,alternative="l",paired=F)$p.value
+  plt3<-t.test(DSCZR,NDSCZR,alternative="l",paired=F)$p.value
   
   #without Holm's correction
   PpwtR12lt  <- plt1
@@ -282,25 +282,25 @@ for (i in 1:num.breaks)
   
   
   stats.df<- rbind(stats.df,data.frame(value= PpwtR12lt ,test.type="t.less",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtR13lt ,test.type="t.less",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtR23lt ,test.type="t.less",side="right",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwtR12ltHC ,test.type="t.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtR13ltHC ,test.type="t.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtR23ltHC ,test.type="t.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwtR12gtHC ,test.type="t.greater.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,HR"))
+                                       diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtR13gtHC ,test.type="t.greater.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "MDD,Ctrl"))
-  stats.df<- rbind(stats.df,data.frame(value= PpwtR13gtHC ,test.type="t.greater.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "HR,Ctrl"))
+                                       diag_groups= "Healthy,NondefScz"))
+  stats.df<- rbind(stats.df,data.frame(value= PpwtR23gtHC ,test.type="t.greater.holm.corr",side="right",censoring_idx=i,
+                                       diag_groups= "DefScz,NondefScz"))
   
 }
 stats.df.bak<- stats.df
@@ -318,17 +318,22 @@ stats.df$test.type<-as.factor(stats.df$test.type)
 censored_plot.lil <- ggplot(aes(x=lcdm.breaks,y=value,color= diag_groups),
                         data=subset(stats.df,
                                     test.type%in% c("lillie")))+        
-  facet_grid(side~diag_groups)+geom_line()+scale_y_continuous(limits= c(0,1))
+  facet_grid(side~diag_groups)+geom_line()+
+  scale_y_continuous(limits= c(0,1))+labs(x="Censoring Distance(mm)",y="p-value")+theme_bw()
 print(censored_plot.lil)
 
 ggsave("./graphs/censored_statistics_normality.pdf")
 
 
 
-censored_plot <- ggplot(aes(x=lcdm.breaks,y=value,color=diag_groups),
+censored_plot <- ggplot(aes(x=lcdm.breaks,y=value,color=side),
                         data=subset(stats.df,
                                     test.type%in% c("kruskal","levene.hov","anova.homosk","anova.heterosk")))+
-                          facet_grid(side~test.type)+geom_line()
+                          facet_grid(side~test.type)+geom_line()+
+  labs(x="Censoring Distance(mm)",y="p-value")+theme_bw()+
+  scale_color_manual(values=c("#0000DD", "#CC1111"))
+  #theme(strip.background = element_rect(colour=c("blue","red")))
+#+theme(legend.position="none")
 print(censored_plot)
 
 ggsave("./graphs/censored_statistics_threeway.pdf")
@@ -337,14 +342,16 @@ ggsave("./graphs/censored_statistics_threeway.pdf")
 censored_plot.2 <- ggplot(aes(x=lcdm.breaks,y=value,colour=diag_groups),
                         data=subset(stats.df, 
                                     test.type%in% c("wilcox.less", "wilcox.less.holm.corr" , "wilcox.greater.holm.corr")))+ 
-                  facet_grid(side~test.type)+geom_line()
+                  facet_grid(side~test.type)+
+  geom_line()+labs(x="Censoring Distance(mm)",y="p-value")+theme_bw()
 print(censored_plot.2)
 
 ggsave("./graphs/censored_statistics_twoway_wilcox.pdf")
 censored_plot.3 <- ggplot(aes(x=lcdm.breaks,y=value,color=diag_groups),
                           data=subset(stats.df, 
                                       test.type%in% c( "t.less", "t.less.holm.corr", "t.greater.holm.corr" )))+                          
-                  facet_grid(side~test.type,drop=TRUE)+geom_line()
+                  facet_grid(side~test.type,drop=TRUE)+
+  geom_line()+labs(x="Censoring Distance(mm)",y="p-value")+theme_bw()
 print(censored_plot.3)
 
 ggsave("./graphs/censored_statistics_twoway_t.pdf")
