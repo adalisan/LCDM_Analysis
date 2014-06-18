@@ -127,6 +127,11 @@ for (i in 1:num.breaks)
   
   #pairwise left comparisons
   #wilcoxon tests
+  p.wilcox.two.sided.1<-wilcox.test(mddL,DSCZL,paired=F)$p.value
+  p.wilcox.two.sided.2<-wilcox.test(mddL,NDSCZL,paired=F)$p.value
+  p.wilcox.two.sided.3<-wilcox.test(DSCZL,NDSCZL,paired=F)$p.value
+  
+  
   plt1<-wilcox.test(mddL,DSCZL,alternative="l",paired=F)$p.value
   plt2<-wilcox.test(mddL,NDSCZL,alternative="l",paired=F)$p.value
   plt3<-wilcox.test(DSCZL,NDSCZL,alternative="l",paired=F)$p.value
@@ -171,6 +176,11 @@ for (i in 1:num.breaks)
                                        diag_groups= "DefScz,NondefScz"))
   
   #t-tests
+  p.t.test.two.sided.1<-t.test(mddL,DSCZL,paired=F)$p.value
+  p.t.test.two.sided.2<-t.test(mddL,NDSCZL,paired=F)$p.value
+  p.t.test.two.sided.3<-t.test(DSCZL,NDSCZL,paired=F)$p.value
+  
+  
   plt1<-t.test(mddL,DSCZL,alternative="l",paired=F)$p.value
   plt2<-t.test(mddL,NDSCZL,alternative="l",paired=F)$p.value
   plt3<-t.test(DSCZL,NDSCZL,alternative="l",paired=F)$p.value
@@ -210,15 +220,15 @@ for (i in 1:num.breaks)
                                        diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwtL13gtHC ,test.type="t.greater.holm.corr",side="left",censoring_idx=i,
                                        diag_groups= "Healthy,NondefScz"))
-  stats.df<- rbind(stats.df,data.frame(value= PpwtL13gtHC ,test.type="t.greater.holm.corr",side="left",censoring_idx=i,
+  stats.df<- rbind(stats.df,data.frame(value= PpwtL23gtHC ,test.type="t.greater.holm.corr",side="left",censoring_idx=i,
                                        diag_groups= "DefScz,NondefScz"))
   
   
   #pairwise right comparisons
   #wilcoxon tests
-  plt1<-wilcox.test(mddR,DSCZR,alternative="l",paired=F)$p.value
-  plt2<-wilcox.test(mddR,NDSCZR,alternative="l",paired=F)$p.value
-  plt3<-wilcox.test(NDSCZR,DSCZR,alternative="l",paired=F)$p.value
+  plt1<-wilcox.test(mddR,DSCZR,paired=F)$p.value
+  plt2<-wilcox.test(mddR,NDSCZR,paired=F)$p.value
+  plt3<-wilcox.test(NDSCZR,DSCZR,paired=F)$p.value
   
   #without Holm's correction
   PpwWR12lt  <- plt1
@@ -241,14 +251,14 @@ for (i in 1:num.breaks)
   stats.df<- rbind(stats.df,data.frame(value= PpwWR13lt ,test.type="wilcox.less",side="right",censoring_idx=i,
                                        diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR23lt ,test.type="wilcox.less",side="right",censoring_idx=i,
-                                       diag_groups= "NondefScz,DefScz"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWR12ltHC ,test.type="wilcox.less.holm.corr",side="right",censoring_idx=i,
                                        diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR13ltHC ,test.type="wilcox.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "NondefScz,Healthy"))
+                                       diag_groups= "Healthy,NondefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWR23ltHC ,test.type="wilcox.less.holm.corr",side="right",censoring_idx=i,
-                                       diag_groups= "NondefScz,DefScz"))
+                                       diag_groups= "DefScz,NondefScz"))
   
   stats.df<- rbind(stats.df,data.frame(value= PpwWR12gtHC ,test.type="wilcox.greater.holm.corr",side="right",censoring_idx=i,
                                        diag_groups= "Healthy,DefScz"))
