@@ -172,7 +172,7 @@ for (i in 1:num.breaks)
                                        diag_groups= "Healthy,DefScz"))
   stats.df<- rbind(stats.df,data.frame(value= PpwWL13gtHC ,test.type="wilcox.greater.holm.corr",side="left",censoring_idx=i,
                                        diag_groups= "Healthy,NondefScz"))
-  stats.df<- rbind(stats.df,data.frame(value= PpwWL13gtHC ,test.type="wilcox.greater.holm.corr",side="left",censoring_idx=i,
+  stats.df<- rbind(stats.df,data.frame(value= PpwWL23gtHC ,test.type="wilcox.greater.holm.corr",side="left",censoring_idx=i,
                                        diag_groups= "DefScz,NondefScz"))
   
   #t-tests
